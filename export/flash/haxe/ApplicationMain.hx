@@ -83,6 +83,10 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/knight.png");
+		types.push (AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/player.png");
 		types.push (AssetType.IMAGE);
 		

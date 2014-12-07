@@ -12,6 +12,7 @@ import flixel.util.FlxSort;
 import items.GoldenHelm;
 import items.Mulberry;
 import items.RustySword;
+import people.Knight;
 import things.Block;
 import things.Bush;
 import things.CastleLeft;
@@ -27,6 +28,7 @@ class PlayState extends FlxState
 	public var zones:FlxGroup;
 	public var coins:FlxTypedGroup<Coin>;
 	
+	var blocks:FlxGroup;
 	var surprise:FlxSprite;
 	
 	override public function create():Void
@@ -45,6 +47,8 @@ class PlayState extends FlxState
 		
 		stuff = new FlxSpriteGroup();
 		add(stuff);
+		blocks = new FlxGroup();
+		add(blocks);
 		
 		var bushArray:Array<Int> = [
 			1,1,1,1,0,0,0,0,0,2,2,2,0,0,0,0,1,1,1,1,
@@ -64,7 +68,7 @@ class PlayState extends FlxState
 		for (Y in 0...12) {
 			for (X in 0...20) {
 				if (bushArray[X + Y * 20] == 1) stuff.add(new Bush(X, Y));
-				if (bushArray[X + Y * 20] == 2) stuff.add(new Block(X, Y));
+				if (bushArray[X + Y * 20] == 2) blocks.add(new Block(X, Y));
 			}
 		}
 		
@@ -80,6 +84,7 @@ class PlayState extends FlxState
 		stuff.add(itemShop);
 		stuff.add(weaponShop);
 		stuff.add(inn);
+		stuff.add(new Knight());
 		
 		surprise = new FlxSprite(0, 0, "assets/images/actionMark.png");
 		surprise.scale.y = 0;
@@ -96,12 +101,12 @@ class PlayState extends FlxState
 		surprised = false;
 		surprise.setPosition(Reg.player.x, Reg.player.y - 32);
 		Reg.gold = Math.floor(ZMath.clamp(Reg.gold, 0, 999999));
-		if (FlxG.keys.justPressed.T) openSubState(new DialogBox(0, "Testing text,+nI +sdunno+s if it will work."));
 		if (FlxG.keys.justPressed.I) openSubState(new Inventory());
 		if (FlxG.keys.justPressed.O) openSubState(new Trash());
 		if (FlxG.keys.justPressed.Y) openSubState(new Shop(itemShop));
 		FlxG.overlap(Reg.player, coins, getCoin);
 		FlxG.collide(stuff, stuff);
+		FlxG.collide(Reg.player, blocks);
 		FlxG.overlap(Reg.player, zones, zoneOverlap);
 		stuff.sort(FlxSort.byY, FlxSort.ASCENDING);
 		if (surprise.scale.y == 0 && surprised) FlxTween.tween(surprise.scale, { y:1 }, 0.2, { ease:FlxEase.backOut } );

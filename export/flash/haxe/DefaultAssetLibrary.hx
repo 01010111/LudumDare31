@@ -72,6 +72,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/inventoryBox.png", AssetType.IMAGE);
 		className.set ("assets/images/itemShop.png", __ASSET__assets_images_itemshop_png);
 		type.set ("assets/images/itemShop.png", AssetType.IMAGE);
+		className.set ("assets/images/knight.png", __ASSET__assets_images_knight_png);
+		type.set ("assets/images/knight.png", AssetType.IMAGE);
 		className.set ("assets/images/player.png", __ASSET__assets_images_player_png);
 		type.set ("assets/images/player.png", AssetType.IMAGE);
 		className.set ("assets/images/selector.png", __ASSET__assets_images_selector_png);
@@ -149,6 +151,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/knight.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/player.png";
 		path.set (id, id);
 		
@@ -186,6 +192,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		#if openfl
+		
 		
 		
 		
@@ -257,6 +264,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/itemShop.png", __ASSET__assets_images_itemshop_png);
 		type.set ("assets/images/itemShop.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/knight.png", __ASSET__assets_images_knight_png);
+		type.set ("assets/images/knight.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/player.png", __ASSET__assets_images_player_png);
 		type.set ("assets/images/player.png", AssetType.IMAGE);
@@ -867,6 +877,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_inn_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_inventorybox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_itemshop_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_knight_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_player_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_selector_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_shopbox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -880,6 +891,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif html5
 
 #if openfl
+
 
 
 
@@ -928,6 +940,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 //@:bitmap("assets/images/inn.png") class __ASSET__assets_images_inn_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/inventoryBox.png") class __ASSET__assets_images_inventorybox_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/itemShop.png") class __ASSET__assets_images_itemshop_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/knight.png") class __ASSET__assets_images_knight_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/player.png") class __ASSET__assets_images_player_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/selector.png") class __ASSET__assets_images_selector_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/shopBox.png") class __ASSET__assets_images_shopbox_png extends openfl.display.BitmapData {}
