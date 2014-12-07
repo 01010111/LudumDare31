@@ -33,7 +33,7 @@ class PlayState extends FlxState
 	
 	override public function create():Void
 	{
-		FlxG.fullscreen = true;
+		//FlxG.fullscreen = true;
 		FlxG.mouse.visible = false;
 		super.create();
 		Reg.playState = this;

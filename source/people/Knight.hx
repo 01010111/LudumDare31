@@ -18,7 +18,7 @@ class Knight extends NPC
 		animation.add("idle", [0]);
 		animation.add("walk", [0, 1, 0, 2], 12);
 		elasticity = 0.8;
-		maxVelocity.set(80, 80);
+		maxVelocity.set(50, 50);
 		drag.set(50, 50);
 	}
 	
@@ -26,19 +26,19 @@ class Knight extends NPC
 	
 	override public function update(elapsed:Float):Void 
 	{
+		super.update(elapsed);
 		if (velocity.x == 0 && velocity.y == 0) animation.play("idle");
 		else animation.play("walk");
 		var m = getMidpoint();
 		if (target != null) {
-			var a:FlxPoint = ZMath.velocityFromAngle(ZMath.angleBetween(m.x, m.y, target.x, target.y), 150);
+			var a:FlxPoint = ZMath.velocityFromAngle(ZMath.angleBetween(m.x, m.y, target.x, target.y), 800);
 			acceleration = a;
-			if (Math.abs(target.x - x) < 4 && Math.abs(target.y - y) < 4) {
+			if (Math.abs(target.x - x) < 8 && Math.abs(target.y - y) < 8) {
 				acceleration = FlxPoint.get();
 				velocity.set(velocity.x * 0.5, velocity.y * 0.5);
 				target = null;
 			}
 		}
-		super.update(elapsed);
 		if (FlxG.keys.justPressed.T) target = FlxPoint.get(Reg.player.x, Reg.player.y);
 	}
 	
