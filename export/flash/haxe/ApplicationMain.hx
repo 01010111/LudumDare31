@@ -27,10 +27,6 @@ class ApplicationMain {
 		var types = [];
 		
 		
-		urls.push ("assets/data/data-goes-here.txt");
-		types.push (AssetType.TEXT);
-		
-		
 		urls.push ("assets/images/actionMark.png");
 		types.push (AssetType.IMAGE);
 		
@@ -75,10 +71,6 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/images-go-here.txt");
-		types.push (AssetType.TEXT);
-		
-		
 		urls.push ("assets/images/inn.png");
 		types.push (AssetType.IMAGE);
 		
@@ -113,14 +105,6 @@ class ApplicationMain {
 		
 		urls.push ("assets/images/well.png");
 		types.push (AssetType.IMAGE);
-		
-		
-		urls.push ("assets/music/music-goes-here.txt");
-		types.push (AssetType.TEXT);
-		
-		
-		urls.push ("assets/sounds/sounds-go-here.txt");
-		types.push (AssetType.TEXT);
 		
 		
 		urls.push ("assets/sounds/beep.mp3");

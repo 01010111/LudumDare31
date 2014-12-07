@@ -44,8 +44,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
-		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
 		className.set ("assets/images/actionMark.png", __ASSET__assets_images_actionmark_png);
 		type.set ("assets/images/actionMark.png", AssetType.IMAGE);
 		className.set ("assets/images/actors.png", __ASSET__assets_images_actors_png);
@@ -68,8 +66,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/font1.png", AssetType.IMAGE);
 		className.set ("assets/images/icons.png", __ASSET__assets_images_icons_png);
 		type.set ("assets/images/icons.png", AssetType.IMAGE);
-		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
-		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
 		className.set ("assets/images/inn.png", __ASSET__assets_images_inn_png);
 		type.set ("assets/images/inn.png", AssetType.IMAGE);
 		className.set ("assets/images/inventoryBox.png", __ASSET__assets_images_inventorybox_png);
@@ -88,10 +84,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/weaponShop.png", AssetType.IMAGE);
 		className.set ("assets/images/well.png", __ASSET__assets_images_well_png);
 		type.set ("assets/images/well.png", AssetType.IMAGE);
-		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
-		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
-		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
-		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
 		className.set ("assets/sounds/beep.mp3", __ASSET__assets_sounds_beep_mp3);
 		type.set ("assets/sounds/beep.mp3", AssetType.MUSIC);
 		className.set ("assets/sounds/flixel.mp3", __ASSET__assets_sounds_flixel_mp3);
@@ -101,10 +93,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#elseif html5
 		
 		var id;
-		id = "assets/data/data-goes-here.txt";
-		path.set (id, id);
-		
-		type.set (id, AssetType.TEXT);
 		id = "assets/images/actionMark.png";
 		path.set (id, id);
 		
@@ -149,10 +137,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "assets/images/images-go-here.txt";
-		path.set (id, id);
-		
-		type.set (id, AssetType.TEXT);
 		id = "assets/images/inn.png";
 		path.set (id, id);
 		
@@ -189,14 +173,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "assets/music/music-goes-here.txt";
-		path.set (id, id);
-		
-		type.set (id, AssetType.TEXT);
-		id = "assets/sounds/sounds-go-here.txt";
-		path.set (id, id);
-		
-		type.set (id, AssetType.TEXT);
 		id = "assets/sounds/beep.mp3";
 		path.set (id, id);
 		
@@ -234,18 +210,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
-		
-		
-		
-		
 		#end
 		
 		#if (windows || mac || linux)
 		
 		/*var useManifest = false;
-		
-		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
-		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
 		
 		className.set ("assets/images/actionMark.png", __ASSET__assets_images_actionmark_png);
 		type.set ("assets/images/actionMark.png", AssetType.IMAGE);
@@ -280,9 +249,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/icons.png", __ASSET__assets_images_icons_png);
 		type.set ("assets/images/icons.png", AssetType.IMAGE);
 		
-		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
-		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
-		
 		className.set ("assets/images/inn.png", __ASSET__assets_images_inn_png);
 		type.set ("assets/images/inn.png", AssetType.IMAGE);
 		
@@ -309,12 +275,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/well.png", __ASSET__assets_images_well_png);
 		type.set ("assets/images/well.png", AssetType.IMAGE);
-		
-		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
-		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
-		
-		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
-		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
 		
 		className.set ("assets/sounds/beep.mp3", __ASSET__assets_sounds_beep_mp3);
 		type.set ("assets/sounds/beep.mp3", AssetType.MUSIC);
@@ -893,7 +853,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
-@:keep @:bind #if display private #end class __ASSET__assets_data_data_goes_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_actionmark_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_actors_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_bg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -905,7 +864,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_font_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_font1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_icons_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_inn_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_inventorybox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_itemshop_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -915,8 +873,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_trashbox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_weaponshop_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_well_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_music_music_goes_here_txt extends flash.utils.ByteArray { }
-@:keep @:bind #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_beep_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_flixel_mp3 extends flash.media.Sound { }
 
@@ -924,10 +880,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif html5
 
 #if openfl
-
-
-
-
 
 
 
@@ -962,7 +914,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux)
 
 //
-//@:file("assets/data/data-goes-here.txt") class __ASSET__assets_data_data_goes_here_txt extends lime.utils.ByteArray {}
 //@:bitmap("assets/images/actionMark.png") class __ASSET__assets_images_actionmark_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/actors.png") class __ASSET__assets_images_actors_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/bg.png") class __ASSET__assets_images_bg_png extends openfl.display.BitmapData {}
@@ -974,7 +925,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 //@:bitmap("assets/images/font.png") class __ASSET__assets_images_font_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/font1.png") class __ASSET__assets_images_font1_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/icons.png") class __ASSET__assets_images_icons_png extends openfl.display.BitmapData {}
-//@:file("assets/images/images-go-here.txt") class __ASSET__assets_images_images_go_here_txt extends lime.utils.ByteArray {}
 //@:bitmap("assets/images/inn.png") class __ASSET__assets_images_inn_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/inventoryBox.png") class __ASSET__assets_images_inventorybox_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/itemShop.png") class __ASSET__assets_images_itemshop_png extends openfl.display.BitmapData {}
@@ -984,8 +934,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 //@:bitmap("assets/images/trashBox.png") class __ASSET__assets_images_trashbox_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/weaponShop.png") class __ASSET__assets_images_weaponshop_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/well.png") class __ASSET__assets_images_well_png extends openfl.display.BitmapData {}
-//@:file("assets/music/music-goes-here.txt") class __ASSET__assets_music_music_goes_here_txt extends lime.utils.ByteArray {}
-//@:file("assets/sounds/sounds-go-here.txt") class __ASSET__assets_sounds_sounds_go_here_txt extends lime.utils.ByteArray {}
 //@:sound("C:/HaxeToolkit/haxe/lib/flixel/git/assets/sounds/beep.mp3") class __ASSET__assets_sounds_beep_mp3 extends openfl.media.Sound {}
 //@:sound("C:/HaxeToolkit/haxe/lib/flixel/git/assets/sounds/flixel.mp3") class __ASSET__assets_sounds_flixel_mp3 extends openfl.media.Sound {}
 //

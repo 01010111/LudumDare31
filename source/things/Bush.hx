@@ -1,4 +1,6 @@
 package things;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 
 /**
  * ...

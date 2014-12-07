@@ -50,7 +50,7 @@ class Trash extends FlxSubState
 		add(indicator);
 	}
 	
-	function addItems():Void
+	function addItems(w:Float = 0.1):Void
 	{
 		items = new FlxSpriteGroup();
 		iLayer.add(items);
@@ -69,7 +69,7 @@ class Trash extends FlxSubState
 			item.setPosition(64 + X * 16, 32 + Y * 16);
 			item.scale.set();
 			items.add(item);
-			new FlxTimer().start(0.1 + i * 0.01).onComplete = function(t:FlxTimer):Void { FlxTween.tween(item.scale, { x:1, y:1 }, 0.5, { ease:FlxEase.elasticOut } ); }
+			new FlxTimer().start(w + i * 0.01).onComplete = function(t:FlxTimer):Void { FlxTween.tween(item.scale, { x:1, y:1 }, 0.5, { ease:FlxEase.elasticOut } ); }
 			if (i < 32 && i > 24) trace(0.1 + i * 0.01);
 			
 			X++;
@@ -82,7 +82,10 @@ class Trash extends FlxSubState
 	
 	override public function update(elapsed:Float):Void 
 	{
-		if (goldHelper + 1000 < Reg.gold) goldHelper += 999;
+		Reg.gold = Math.floor(ZMath.clamp(Reg.gold, 0, 999999));
+		if (goldHelper > Reg.gold) goldHelper = Reg.gold;
+		if (goldHelper + 10000 < Reg.gold) goldHelper += 9999;
+		else if (goldHelper + 1000 < Reg.gold) goldHelper += 999;
 		else if (goldHelper + 100 < Reg.gold) goldHelper += 99;
 		else if (goldHelper + 10 < Reg.gold) goldHelper += 9;
 		else if (goldHelper < Reg.gold) goldHelper++;
@@ -107,12 +110,14 @@ class Trash extends FlxSubState
 	
 	function trashItem():Void
 	{
-		if (inv.length > 0) {
+		if (inv.length > 0 && currentItem < inv.length) {
+			Reg.gold = Math.floor(ZMath.clamp(Reg.gold, 0, 999999));
 			Reg.luck += inv[currentItem].cost * 0.01;
+			Reg.gold += Math.floor(ZMath.clamp(inv[currentItem].cost * Reg.luck * 0.01, 0, 100));
 			Reg.player.pocket.removeItemFromPocket(inv[currentItem].animation.frameIndex);
+			items.kill();
+			addItems(0.001);
 		}
-		items.kill();
-		addItems();
 	}
 	
 	override public function close():Void 

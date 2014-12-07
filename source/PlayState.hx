@@ -6,6 +6,8 @@ import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxSort;
 import items.GoldenHelm;
 import items.Mulberry;
@@ -21,14 +23,20 @@ import things.Well;
 
 class PlayState extends FlxState
 {
-	var stuff:FlxSpriteGroup;
+	public var stuff:FlxSpriteGroup;
 	public var zones:FlxGroup;
+	public var coins:FlxTypedGroup<Coin>;
+	
+	var surprise:FlxSprite;
 	
 	override public function create():Void
 	{
+		FlxG.fullscreen = true;
 		FlxG.mouse.visible = false;
 		super.create();
 		Reg.playState = this;
+		
+		coins = new FlxTypedGroup();
 		
 		add(new FlxSprite(0, 0, "assets/images/bg.png"));
 		
@@ -72,6 +80,10 @@ class PlayState extends FlxState
 		stuff.add(itemShop);
 		stuff.add(weaponShop);
 		stuff.add(inn);
+		
+		surprise = new FlxSprite(0, 0, "assets/images/actionMark.png");
+		surprise.scale.y = 0;
+		add(surprise);
 	}
 	
 	var itemShop:ItemShop;
@@ -81,18 +93,32 @@ class PlayState extends FlxState
 	
 	override public function update(elapsed:Float):Void 
 	{
+		surprised = false;
+		surprise.setPosition(Reg.player.x, Reg.player.y - 32);
+		Reg.gold = Math.floor(ZMath.clamp(Reg.gold, 0, 999999));
 		if (FlxG.keys.justPressed.T) openSubState(new DialogBox(0, "Testing text,+nI +sdunno+s if it will work."));
 		if (FlxG.keys.justPressed.I) openSubState(new Inventory());
 		if (FlxG.keys.justPressed.O) openSubState(new Trash());
 		if (FlxG.keys.justPressed.Y) openSubState(new Shop(itemShop));
+		FlxG.overlap(Reg.player, coins, getCoin);
 		FlxG.collide(stuff, stuff);
 		FlxG.overlap(Reg.player, zones, zoneOverlap);
 		stuff.sort(FlxSort.byY, FlxSort.ASCENDING);
+		if (surprise.scale.y == 0 && surprised) FlxTween.tween(surprise.scale, { y:1 }, 0.2, { ease:FlxEase.backOut } );
+		else if (!surprised && surprise.scale.y == 1) FlxTween.tween(surprise.scale, { y:0 }, 0.1, { ease:FlxEase.backIn } );
 		super.update(elapsed);
 	}
 	
+	function getCoin(p:Player, c:Coin):Void
+	{
+		c.getCoin();
+	}
+	
+	var surprised:Bool = false;
+	
 	function zoneOverlap(p:Player, z:Zone):Void
 	{
+		surprised = true;
 		if (FlxG.keys.anyJustPressed([FlxKey.SPACE, FlxKey.Z])) z.parent.action();
 	}
 	

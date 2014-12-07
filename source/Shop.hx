@@ -87,7 +87,8 @@ class Shop extends FlxSubState
 		else if (FlxG.keys.anyJustPressed([FlxKey.DOWN, FlxKey.S])) currentItem == inv.length - 1? currentItem = 0: currentItem++;
 		else if (FlxG.keys.anyJustPressed([FlxKey.Q, FlxKey.X])) close();
 		else if (FlxG.keys.anyJustPressed([FlxKey.SPACE, FlxKey.Z])) buyCurrentItem();
-		indicator.y += ((34 + currentItem * 16) - indicator.y) * 0.1;
+		indicator.velocity.y = ((34 + currentItem * 16) - indicator.y) * 8;
+		indicator.angle = indicator.velocity.y * 0.25;
 	}
 	
 	function buyCurrentItem():Void
@@ -97,6 +98,8 @@ class Shop extends FlxSubState
 		} else if (Reg.player.pocket.items.length >= 7 * 8) {
 			FlxG.state.openSubState(new DialogBox(2, "Sorry kid, you're already+ncarrying too much stuff!"));
 		} else {
+			indicator.scale.set(1.3, 1.25);
+			FlxTween.tween(indicator.scale, { x:1, y:1 }, 0.2, { ease:FlxEase.backInOut } );
 			Reg.gold -= inv[currentItem].cost;
 			Reg.player.pocket.addItemToPocket(new Item(inv[currentItem].animation.frameIndex, inv[currentItem].name, inv[currentItem].cost));
 		}
