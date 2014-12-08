@@ -15,8 +15,9 @@ import openfl.display.BlendMode;
 class Coin extends FlxSprite
 {
 	var counter:Int = 300;
+	public var amt:Int;
 	
-	public function new(X:Float, Y:Float, V:FlxPoint) 
+	public function new(X:Float, Y:Float, V:FlxPoint, AMT:Int = 5) 
 	{
 		super(X, Y);
 		loadGraphic("assets/images/coin.png", true, 8, 10);
@@ -24,9 +25,12 @@ class Coin extends FlxSprite
 		animation.play("play");
 		velocity.set(V.x + Math.random() * 50 - 25, V.y + Math.random() * 50 - 25);
 		elasticity = 0.8;
+		setSize(8, 4);
+		offset.y = 6;
 		drag.set(300, 300);
 		Reg.playState.stuff.add(this);
 		Reg.playState.coins.add(this);
+		amt = AMT;
 	}
 	
 	var dis:Int;
@@ -47,13 +51,15 @@ class Coin extends FlxSprite
 	public function getCoin():Void
 	{
 		if (alive) {
-			Reg.gold++;
+			Reg.gold += Math.floor(Math.random() * 5 + 5);
 			allowCollisions = FlxObject.NONE;
 			velocity.set();
 			acceleration.set();
-			if (Reg.luck >= Math.random() * 10) Reg.gold++;
-			if (Reg.luck >= Math.random() * 25) Reg.gold++;
-			if (Reg.luck >= Math.random() * 50) Reg.gold++;
+			var i = amt;
+			if (Reg.luck >= Math.random() * 50) amt += Math.floor(Math.random() * 50 + 50);
+			else if (Reg.luck >= Math.random() * 25) amt += Math.floor(Math.random() * 25 + 25);
+			else if (Reg.luck >= Math.random() * 10) amt += Math.floor(Math.random() * 10 + 10);
+			Reg.gold += i;
 			kill();
 		}
 	}

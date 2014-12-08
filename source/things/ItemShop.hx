@@ -25,6 +25,7 @@ class ItemShop extends Thing
 		pocket.addItemToPocket(new Bomb());
 		pocket.addItemToPocket(new Milk());
 		var zone:Zone = new Zone(this, 8, height, Math.round(width - 16), 16);
+		name = "itemshop";
 	}
 	
 	override public function action():Void 

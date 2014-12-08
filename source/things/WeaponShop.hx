@@ -26,6 +26,8 @@ class WeaponShop extends Thing
 		pocket.addItemToPocket(new GoldenHelm());
 		
 		var zone:Zone = new Zone(this, 8, height, width - 16, 16);
+		
+		name = "weaponshop";
 	}
 	
 	override public function action():Void 

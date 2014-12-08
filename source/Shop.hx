@@ -1,6 +1,7 @@
 package ;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
+import flixel.group.FlxGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.text.FlxText;
@@ -21,13 +22,16 @@ class Shop extends FlxSubState
 	var gold:FlxText;
 	var goldHelper:Int;
 	var inv:Array<Item>;
+	var parent:Thing;
+	var iGroup:FlxGroup;
 	
-	public function new(parent:Thing) 
+	public function new(PARENT:Thing) 
 	{
 		super();
 		
+		parent = PARENT;
+		
 		goldHelper = Reg.gold;
-		inv = parent.pocket.items;
 		
 		bg = new FlxSprite(0, 0);
 		bg.makeGraphic(FlxG.width, FlxG.height, 0xff000000);
@@ -39,8 +43,27 @@ class Shop extends FlxSubState
 		add(box);
 		FlxTween.tween(box, { y:16 }, 0.2, { ease:FlxEase.backOut } ).onComplete = function(t:FlxTween):Void { goldCounter = true; }
 		
+		iGroup = new FlxGroup();
+		add(iGroup);
+		
+		addItems();
+		
+		indicator = new FlxSprite(45, 0, "assets/images/selector.png");
+		indicator.scale.set();
+		FlxTween.tween(indicator.scale, { x:1, y:1 }, 0.4, { ease:FlxEase.backOut } );
+		add(indicator);
+		
+		gold = new FlxText(212, 136, 48);
+		gold.setFormat(null, 8, 0xd27d2c, FlxTextAlign.RIGHT, FlxTextBorderStyle.SHADOW, 0x140c1c);
+		add(gold);
+	}
+	
+	function addItems(w:Float = 0.05):Void
+	{
+		inv = parent.pocket.items;
+		
 		items = new FlxSpriteGroup();
-		add(items);
+		iGroup.add(items);
 		
 		for (i in 0...inv.length) {
 			var item:Item = new Item(inv[i].animation.frameIndex, inv[i].name, inv[i].cost);
@@ -58,22 +81,14 @@ class Shop extends FlxSubState
 			cost.scale.set();
 			items.add(cost);
 			
-			new FlxTimer().start(0.1 + i * 0.1).onComplete = function(t:FlxTimer):Void { FlxTween.tween(item.scale, { x:1, y:1 }, 0.5, { ease:FlxEase.elasticOut } ); FlxTween.tween(desc.scale, { x:1, y:1 }, 0.3, { ease:FlxEase.backOut } ); FlxTween.tween(cost.scale, { x:1, y:1 }, 0.3, { ease:FlxEase.backOut } ); }
+			new FlxTimer().start(0.05).onComplete = function(t:FlxTimer):Void { FlxTween.tween(item.scale, { x:1, y:1 }, 0.5, { ease:FlxEase.elasticOut } ); FlxTween.tween(desc.scale, { x:1, y:1 }, 0.3, { ease:FlxEase.backOut } ); FlxTween.tween(cost.scale, { x:1, y:1 }, 0.3, { ease:FlxEase.backOut } ); }
 		}
-		
-		indicator = new FlxSprite(45, 0, "assets/images/selector.png");
-		indicator.scale.set();
-		FlxTween.tween(indicator.scale, { x:1, y:1 }, 0.4, { ease:FlxEase.backOut } );
-		add(indicator);
-		
-		gold = new FlxText(212, 136, 48);
-		gold.setFormat(null, 8, 0xd27d2c, FlxTextAlign.RIGHT, FlxTextBorderStyle.SHADOW, 0x140c1c);
-		add(gold);
 	}
 	
 	var indicator:FlxSprite;
 	var goldCounter:Bool = false;
 	var currentItem:Int = 0;
+	var timer:Int = 20;
 	
 	override public function update(elapsed:Float):Void 
 	{
@@ -83,10 +98,12 @@ class Shop extends FlxSubState
 		else if (goldHelper > Reg.gold) goldHelper--;
 		if (goldCounter) gold.text = "" + goldHelper;
 		super.update(elapsed);
-		if (FlxG.keys.anyJustPressed([FlxKey.UP, FlxKey.W])) currentItem == 0? currentItem = inv.length - 1: currentItem--;
-		else if (FlxG.keys.anyJustPressed([FlxKey.DOWN, FlxKey.S])) currentItem == inv.length - 1? currentItem = 0: currentItem++;
-		else if (FlxG.keys.anyJustPressed([FlxKey.Q, FlxKey.X])) close();
-		else if (FlxG.keys.anyJustPressed([FlxKey.SPACE, FlxKey.Z])) buyCurrentItem();
+		if (timer <= 0) {
+			if (FlxG.keys.anyJustPressed([FlxKey.UP, FlxKey.W])) currentItem == 0? currentItem = inv.length - 1: currentItem--;
+			else if (FlxG.keys.anyJustPressed([FlxKey.DOWN, FlxKey.S])) currentItem == inv.length - 1? currentItem = 0: currentItem++;
+			else if (FlxG.keys.anyJustPressed([FlxKey.Q, FlxKey.X])) close();
+			else if (FlxG.keys.anyJustPressed([FlxKey.SPACE, FlxKey.Z])) buyCurrentItem();
+		} else timer--;
 		indicator.velocity.y = ((34 + currentItem * 16) - indicator.y) * 8;
 		indicator.angle = indicator.velocity.y * 0.25;
 	}
@@ -102,6 +119,16 @@ class Shop extends FlxSubState
 			FlxTween.tween(indicator.scale, { x:1, y:1 }, 0.2, { ease:FlxEase.backInOut } );
 			Reg.gold -= inv[currentItem].cost;
 			Reg.player.pocket.addItemToPocket(new Item(inv[currentItem].animation.frameIndex, inv[currentItem].name, inv[currentItem].cost));
+			parent.pocket.removeItemFromPocket(inv[currentItem].animation.frameIndex);
+			items.kill();
+			addItems(0.01);
+		} timer = 20;
+		currentItem = 0;
+		
+		if (inv.length <= 0) {
+			if (parent.name == "itemshop") Reg.story[Reg.STORY_ITEMSHOP] = 1;
+			else Reg.story[Reg.STORY_WEAPONSHOP] = 1;
+			FlxG.state.openSubState(new DialogBox(Reg.ACTOR_SHOPKEEP, "+sYou've cleaned me out!+s+nMaybe you could find some+nsupplies for me?"));
 		}
 	}
 	

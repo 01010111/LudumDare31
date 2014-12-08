@@ -59,11 +59,23 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/desertSign.png");
+		types.push (AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/font.png");
 		types.push (AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/font1.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/forestSign.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/granny.png");
 		types.push (AssetType.IMAGE);
 		
 		
@@ -83,7 +95,23 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/king.png");
+		types.push (AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/knight.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/lucky.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/mage.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/mountainSign.png");
 		types.push (AssetType.IMAGE);
 		
 		
@@ -96,6 +124,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/shopBox.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/slotMachine.png");
 		types.push (AssetType.IMAGE);
 		
 		

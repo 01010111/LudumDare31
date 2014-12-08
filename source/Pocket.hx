@@ -26,14 +26,39 @@ class Pocket
 		}
 	}
 	
-	public function removeItemFromPocket(ItemID:Int):Void
+	public function removeItemFromPocket(ItemID:Int, HowMany:Int = 1):Void
 	{
+		var n = 0;
 		for (i in 0...items.length) {
 			if (items[i].animation.frameIndex == ItemID) {
 				items.remove(items[i]);
+				n++;
+				if (n >= HowMany) break;
+			}
+		}
+	}
+	
+	public function countItems(ItemId:Int):Int
+	{
+		var n:Int = 0;
+		for (i in 0...items.length) {
+			if (items[i].animation.frameIndex == ItemId) {
+				n++;
+			}
+		}
+		return n;
+	}
+	
+	public function checkForItem(ItemID:Int):Bool
+	{
+		var b = false;
+		for (i in 0...items.length) {
+			if (items[i].animation.frameIndex == ItemID) {
+				b = true;
 				break;
 			}
 		}
+		return b;
 	}
 	
 }

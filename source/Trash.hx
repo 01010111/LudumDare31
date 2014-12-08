@@ -111,6 +111,15 @@ class Trash extends FlxSubState
 	function trashItem():Void
 	{
 		if (inv.length > 0 && currentItem < inv.length) {
+			var i = inv[currentItem].animation.frameIndex;
+			if (i < 7) {
+				var weapon:Item = new Item(inv[currentItem].animation.frameIndex, inv[currentItem].name, inv[currentItem].cost);
+				Reg.playState.weaponShop.pocket.addItemToPocket(weapon);
+			} else if (i > 7 && i < 15) {
+				var item:Item = new Item(inv[currentItem].animation.frameIndex, inv[currentItem].name, inv[currentItem].cost);
+				Reg.playState.itemShop.pocket.addItemToPocket(item);
+			}
+			
 			Reg.gold = Math.floor(ZMath.clamp(Reg.gold, 0, 999999));
 			Reg.luck += inv[currentItem].cost * 0.01;
 			Reg.gold += Math.floor(ZMath.clamp(inv[currentItem].cost * Reg.luck * 0.01, 0, 100));

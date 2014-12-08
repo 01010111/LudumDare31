@@ -9,6 +9,7 @@ class Thing extends FlxSprite
 {
 	public var actionable:Bool = true;
 	public var pocket:Pocket;
+	public var name:String = "THING";
 	
 	public function new(G:String, X:Int, Y:Int, H:Int) 
 	{

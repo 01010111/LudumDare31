@@ -60,10 +60,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/castleR.png", AssetType.IMAGE);
 		className.set ("assets/images/coin.png", __ASSET__assets_images_coin_png);
 		type.set ("assets/images/coin.png", AssetType.IMAGE);
+		className.set ("assets/images/desertSign.png", __ASSET__assets_images_desertsign_png);
+		type.set ("assets/images/desertSign.png", AssetType.IMAGE);
 		className.set ("assets/images/font.png", __ASSET__assets_images_font_png);
 		type.set ("assets/images/font.png", AssetType.IMAGE);
 		className.set ("assets/images/font1.png", __ASSET__assets_images_font1_png);
 		type.set ("assets/images/font1.png", AssetType.IMAGE);
+		className.set ("assets/images/forestSign.png", __ASSET__assets_images_forestsign_png);
+		type.set ("assets/images/forestSign.png", AssetType.IMAGE);
+		className.set ("assets/images/granny.png", __ASSET__assets_images_granny_png);
+		type.set ("assets/images/granny.png", AssetType.IMAGE);
 		className.set ("assets/images/icons.png", __ASSET__assets_images_icons_png);
 		type.set ("assets/images/icons.png", AssetType.IMAGE);
 		className.set ("assets/images/inn.png", __ASSET__assets_images_inn_png);
@@ -72,14 +78,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/inventoryBox.png", AssetType.IMAGE);
 		className.set ("assets/images/itemShop.png", __ASSET__assets_images_itemshop_png);
 		type.set ("assets/images/itemShop.png", AssetType.IMAGE);
+		className.set ("assets/images/king.png", __ASSET__assets_images_king_png);
+		type.set ("assets/images/king.png", AssetType.IMAGE);
 		className.set ("assets/images/knight.png", __ASSET__assets_images_knight_png);
 		type.set ("assets/images/knight.png", AssetType.IMAGE);
+		className.set ("assets/images/lucky.png", __ASSET__assets_images_lucky_png);
+		type.set ("assets/images/lucky.png", AssetType.IMAGE);
+		className.set ("assets/images/mage.png", __ASSET__assets_images_mage_png);
+		type.set ("assets/images/mage.png", AssetType.IMAGE);
+		className.set ("assets/images/mountainSign.png", __ASSET__assets_images_mountainsign_png);
+		type.set ("assets/images/mountainSign.png", AssetType.IMAGE);
 		className.set ("assets/images/player.png", __ASSET__assets_images_player_png);
 		type.set ("assets/images/player.png", AssetType.IMAGE);
 		className.set ("assets/images/selector.png", __ASSET__assets_images_selector_png);
 		type.set ("assets/images/selector.png", AssetType.IMAGE);
 		className.set ("assets/images/shopBox.png", __ASSET__assets_images_shopbox_png);
 		type.set ("assets/images/shopBox.png", AssetType.IMAGE);
+		className.set ("assets/images/slotMachine.png", __ASSET__assets_images_slotmachine_png);
+		type.set ("assets/images/slotMachine.png", AssetType.IMAGE);
 		className.set ("assets/images/trashBox.png", __ASSET__assets_images_trashbox_png);
 		type.set ("assets/images/trashBox.png", AssetType.IMAGE);
 		className.set ("assets/images/weaponShop.png", __ASSET__assets_images_weaponshop_png);
@@ -127,11 +143,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/desertSign.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/font.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/font1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/forestSign.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/granny.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -151,7 +179,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/king.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/knight.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/lucky.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/mage.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/mountainSign.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -164,6 +208,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/shopBox.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/slotMachine.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -192,6 +240,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		#if openfl
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -247,11 +303,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/coin.png", __ASSET__assets_images_coin_png);
 		type.set ("assets/images/coin.png", AssetType.IMAGE);
 		
+		className.set ("assets/images/desertSign.png", __ASSET__assets_images_desertsign_png);
+		type.set ("assets/images/desertSign.png", AssetType.IMAGE);
+		
 		className.set ("assets/images/font.png", __ASSET__assets_images_font_png);
 		type.set ("assets/images/font.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/font1.png", __ASSET__assets_images_font1_png);
 		type.set ("assets/images/font1.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/forestSign.png", __ASSET__assets_images_forestsign_png);
+		type.set ("assets/images/forestSign.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/granny.png", __ASSET__assets_images_granny_png);
+		type.set ("assets/images/granny.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/icons.png", __ASSET__assets_images_icons_png);
 		type.set ("assets/images/icons.png", AssetType.IMAGE);
@@ -265,8 +330,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/itemShop.png", __ASSET__assets_images_itemshop_png);
 		type.set ("assets/images/itemShop.png", AssetType.IMAGE);
 		
+		className.set ("assets/images/king.png", __ASSET__assets_images_king_png);
+		type.set ("assets/images/king.png", AssetType.IMAGE);
+		
 		className.set ("assets/images/knight.png", __ASSET__assets_images_knight_png);
 		type.set ("assets/images/knight.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/lucky.png", __ASSET__assets_images_lucky_png);
+		type.set ("assets/images/lucky.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/mage.png", __ASSET__assets_images_mage_png);
+		type.set ("assets/images/mage.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/mountainSign.png", __ASSET__assets_images_mountainsign_png);
+		type.set ("assets/images/mountainSign.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/player.png", __ASSET__assets_images_player_png);
 		type.set ("assets/images/player.png", AssetType.IMAGE);
@@ -276,6 +353,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/shopBox.png", __ASSET__assets_images_shopbox_png);
 		type.set ("assets/images/shopBox.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/slotMachine.png", __ASSET__assets_images_slotmachine_png);
+		type.set ("assets/images/slotMachine.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/trashBox.png", __ASSET__assets_images_trashbox_png);
 		type.set ("assets/images/trashBox.png", AssetType.IMAGE);
@@ -871,16 +951,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_castlel_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_castler_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_coin_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_desertsign_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_font_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_font1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_forestsign_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_granny_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_icons_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_inn_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_inventorybox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_itemshop_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_king_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_knight_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_lucky_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_mage_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_mountainsign_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_player_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_selector_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_shopbox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_slotmachine_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_trashbox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_weaponshop_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_well_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -891,6 +979,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif html5
 
 #if openfl
+
+
+
+
+
+
+
+
 
 
 
@@ -934,16 +1030,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 //@:bitmap("assets/images/castleL.png") class __ASSET__assets_images_castlel_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/castleR.png") class __ASSET__assets_images_castler_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/coin.png") class __ASSET__assets_images_coin_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/desertSign.png") class __ASSET__assets_images_desertsign_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/font.png") class __ASSET__assets_images_font_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/font1.png") class __ASSET__assets_images_font1_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/forestSign.png") class __ASSET__assets_images_forestsign_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/granny.png") class __ASSET__assets_images_granny_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/icons.png") class __ASSET__assets_images_icons_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/inn.png") class __ASSET__assets_images_inn_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/inventoryBox.png") class __ASSET__assets_images_inventorybox_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/itemShop.png") class __ASSET__assets_images_itemshop_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/king.png") class __ASSET__assets_images_king_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/knight.png") class __ASSET__assets_images_knight_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/lucky.png") class __ASSET__assets_images_lucky_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/mage.png") class __ASSET__assets_images_mage_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/mountainSign.png") class __ASSET__assets_images_mountainsign_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/player.png") class __ASSET__assets_images_player_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/selector.png") class __ASSET__assets_images_selector_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/shopBox.png") class __ASSET__assets_images_shopbox_png extends openfl.display.BitmapData {}
+//@:bitmap("assets/images/slotMachine.png") class __ASSET__assets_images_slotmachine_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/trashBox.png") class __ASSET__assets_images_trashbox_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/weaponShop.png") class __ASSET__assets_images_weaponshop_png extends openfl.display.BitmapData {}
 //@:bitmap("assets/images/well.png") class __ASSET__assets_images_well_png extends openfl.display.BitmapData {}

@@ -22,10 +22,12 @@ class DialogBox extends FlxSubState
 	var text:FlxSpriteGroup;
 	var shakeText:FlxSpriteGroup;
 	var shake:Bool = false;
+	var timer:Int = 30;
+	public var name:String;
 	
 	var alphabet:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,?!':@#$%^&*() ";
 	
-	public function new(A:Int, T:String) 
+	public function new(A:Int, T:String, ?Name:String) 
 	{
 		super();
 		
@@ -37,6 +39,9 @@ class DialogBox extends FlxSubState
 		var line:LineStyle = { color: 0xFF000000, thickness: 1 };
 		FlxSpriteUtil.drawRect(back, 4, 4, FlxG.width - 16, 64, 0x80000000);
 		FlxSpriteUtil.drawRect(back, 0, 0, FlxG.width - 16, 64, 0xFF442434, line);
+		FlxSpriteUtil.drawRect(back, 4, 4, FlxG.width - 24, 57, 0x80000000);
+		FlxSpriteUtil.drawRect(back, 4, 4, FlxG.width - 24, 4, 0x80000000);
+		FlxSpriteUtil.drawRect(back, 4, 8, 4, 53, 0x80000000);
 		back.scale.set(1, 0);
 		add(back);
 		FlxTween.tween(back, { y:FlxG.height - 72 }, 0.2, { ease:FlxEase.backOut } );
@@ -52,9 +57,11 @@ class DialogBox extends FlxSubState
 		text = new FlxSpriteGroup();
 		add(text);
 		
+		Name == null? name = Reg.actors[A]: name = Name;
+		
 		var i = 0;
-		while (i < Reg.actors[A].length) {
-			addCharacter(Reg.actors[A].charAt(i), FlxPoint.get(72, 116), i, 0, i);
+		while (i < name.length) {
+			addCharacter(name.charAt(i), FlxPoint.get(72, 116), i, 0, i);
 			i++;
 		}
 		
@@ -82,7 +89,7 @@ class DialogBox extends FlxSubState
 	
 	function shakeIt(t:FlxTimer):Void
 	{
-		for (i in 0...shakeText.length) shakeText.members[i].offset.set(Math.random() * 2 - 1, Math.random() * 2 - 1);
+		for (i in 0...shakeText.length) if (shakeText.members[i] != null) shakeText.members[i].offset.set(Math.random() * 2 - 1, Math.random() * 2 - 1);
 	}
 	
 	function addCharacter(C:String, P:FlxPoint, X:Int, Y:Int, I:Int):Void
@@ -103,7 +110,12 @@ class DialogBox extends FlxSubState
 	
 	override public function update(elapsed:Float):Void 
 	{
-		if (FlxG.keys.justPressed.ANY) close();
+		if (timer <= 0 && FlxG.keys.justPressed.ANY) {
+			shakeTimer.cancel();
+			shakeTimer.destroy();
+			close();
+		}
+		else if (timer > 0) timer--;
 		super.update(elapsed);
 	}
 	
@@ -118,7 +130,6 @@ class DialogBox extends FlxSubState
 	
 	function reallyClose(t:FlxTimer):Void
 	{
-		shakeTimer.cancel();
 		super.close();
 	}
 	
